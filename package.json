@@ -1,0 +1,31 @@
+{
+  "name": "dragged",
+  "version": "0.0.0",
+  "description": "Drag and Drop with Angular",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify test/app.js > test/bundle.js",
+    "watch": "watchify test/app.js -o test/bundle.js -dv"
+  },
+  "author": "Andreas Karlsson",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.3",
+    "watchify": "^2.4.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },  
+  "browserify-shim": {
+    "angular": {
+      "exports": "global:angular",
+      "depends": "global:$"
+    },
+    "jquery": {
+      "exports": "$"
+    }
+  }
+}

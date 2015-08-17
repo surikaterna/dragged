@@ -1,0 +1,85 @@
+<html ng-app="myApp">
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+		<!-- JQUERY -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+		<!-- ANGULAR -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-sanitize.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+		<script data-require="angular-resource@1.2.14" data-semver="1.2.14" src="http://code.angularjs.org/1.3.14/angular-resource.js"></script>
+
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+		<!-- FONTAWESOME -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="bundle.js"></script>		
+		<title>Drag</title>
+		<style type="text/css">
+			*[draggable=true] {
+				  -moz-user-select: none;
+				  -khtml-user-select: none;
+				  -webkit-user-select: none;
+				  user-select: none;
+				  /* Required to make elements draggable in old WebKit */
+				  -khtml-user-drag: element;
+				  -webkit-user-drag: element;
+				  cursor:move;
+			}
+			table {
+				background-color: lightgray;
+			}
+
+			.dragging {
+				background-color: red;
+			}
+			.draggingSpecial {
+				background-color: pink;
+			}
+
+			.dropActive {
+				background-color: purple !important;
+			}
+
+		</style>
+	</head>
+	<body ng-controller="main">
+		<div ui-draggable ui-dragging-class="draggingSpecial">DRAG ME</div>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Draggable</th>
+			</tr>
+			<tr ui-draggable ui-drag-format="application/x-lx-entity-trip" ui-drag-data="{type:'trip', id:'123-123-123-123'}">
+				<td>1</td>
+				<td>Andreas</td>
+				<td>true</td>
+			</tr>
+			<tr ui-draggable="draggable" ui-drag-format="application/x-lx-entity" ui-drag-data="{type:'trip', id:'123-123-123-123'}">
+				<td>2</td>
+				<td>Sven</td>
+				<td>{{draggable}}</td>
+			</tr>
+		</table>
+		<button ng-click="draggable = !draggable">{{draggable}}</button>
+		<div style="width:200px; height:200px; background-color:green;" ui-droppable ui-drop-accepts="application/x-lx-entity" on-drop="onDrop(data)"></div>
+		<script type="text/javascript">
+			angular.module('myApp', ['ui.dragged']);
+			angular.module('myApp').controller('main', function($scope) {
+				$scope.draggable = true;
+				$scope.onDrop = function(allData) {
+					console.log(allData);
+				}
+			});
+		</script>
+	</body>
+</html>
