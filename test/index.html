@@ -59,7 +59,7 @@
 				<th>Name</th>
 				<th>Draggable</th>
 			</tr>
-			<tr ui-draggable ui-drag-format="application/x-lx-entity-trip" ui-drag-data="{type:'trip', id:'123-123-123-123'}">
+			<tr ui-draggable ui-drag-format="application/x-lx-entity-trip" ui-drag-data="{type:'trip', id:'123-123-123-123'}" ui-droppable ui-drop-accepts="application/x-lx-entity" on-drop="onDrop(data)">
 				<td>1</td>
 				<td>Andreas</td>
 				<td>true</td>
