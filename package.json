@@ -1,6 +1,6 @@
 {
   "name": "dragged",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Drag and Drop with Angular",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "transform": [
       "browserify-shim"
     ]
-  },  
+  },
   "browserify-shim": {
     "angular": {
       "exports": "global:angular",
