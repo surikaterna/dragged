@@ -11,13 +11,9 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-sanitize.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
-		<script data-require="angular-resource@1.2.14" data-semver="1.2.14" src="http://code.angularjs.org/1.3.14/angular-resource.js"></script>
 
 		<!-- BOOTSTRAP -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
-		<!-- FONTAWESOME -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -70,12 +66,8 @@
 				<td>{{draggable}}</td>
 			</tr>
 		</table>
-    <ul ui-placeable ui-drop-accepts="application/x-lx-entity">
-      <li>AA</li>
-      <li>BB</li>
-      <li>CC</li>
-      <li>DD</li>
-      <li>EE</li>
+    <ul ui-placeable="items" ui-drop-accepts="application/x-lx-entity">
+      <li ng-repeat="item in items" ui-draggable>--{{item}}</li>
     </ul>
 
 
@@ -88,6 +80,7 @@
 				$scope.onDrop = function(allData) {
 					console.log(allData);
 				}
+        $scope.items=['AA', 'BB', 'CC', 'DD', 'EE']
 			});
 		</script>
 	</body>
