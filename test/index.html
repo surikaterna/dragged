@@ -42,7 +42,7 @@
 			}
 
 			.dropActive {
-				background-color: purple !important;
+				background-color: #ff55FF !important;
 			}
 
 		</style>
@@ -69,7 +69,6 @@
     <ul ui-placeable="items" ui-drop-accepts="application/x-lx-entity">
       <li ng-repeat="item in items" ui-draggable>--{{item}}</li>
     </ul>
-
 
 		<button ng-click="draggable = !draggable">{{draggable}}</button>
 		<div style="width:200px; height:200px; background-color:green;" ui-droppable ui-drop-accepts="application/x-lx-entity" on-drop="onDrop(data)"></div>
