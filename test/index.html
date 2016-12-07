@@ -35,14 +35,14 @@
 			}
 
 			.dragging {
-				background-color: red;
+				/*background-color: red;*/
 			}
 			.draggingSpecial {
-				background-color: pink;
+				/*background-color: pink;*/
 			}
 
 			.dropActive {
-				background-color: #ff55FF !important;
+				/*background-color: #ff55FF !important;*/
 			}
 
 		</style>
@@ -67,7 +67,8 @@
 			</tr>
 		</table>
     <ul ui-placeable="items" ui-drop-accepts="application/x-lx-entity">
-      <li ng-repeat="item in items" ui-draggable>--{{item}}</li>
+      <li ng-repeat="item in items" ui-draggable ui-drag-data="{{item}}" ui-drag-format="application/x-lx-entity">--{{item}}</li>
+			<li class="placeholder" ></li>
     </ul>
 
 		<button ng-click="draggable = !draggable">{{draggable}}</button>
@@ -79,7 +80,7 @@
 				$scope.onDrop = function(allData) {
 					console.log(allData);
 				}
-        $scope.items=['AA', 'BB', 'CC', 'DD', 'EE']
+        $scope.items=['AA', 'BB', 'CC', 'DD', 'EE', 'FF']
 			});
 		</script>
 	</body>
