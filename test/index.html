@@ -35,7 +35,7 @@
 			}
 
 			.dragging {
-				/*background-color: red;*/
+				background-color: lightblue;
 			}
 			.draggingSpecial {
 				/*background-color: pink;*/
@@ -68,7 +68,7 @@
 		</table>
     <ul ui-placeable="items" ui-drop-accepts="application/x-lx-entity">
       <li ng-repeat="item in items" ui-draggable ui-drag-data="{{item}}" ui-drag-format="application/x-lx-entity">--{{item}}</li>
-			<li class="placeholder" ></li>
+			<li class="placeholder"></li>
     </ul>
 
 		<button ng-click="draggable = !draggable">{{draggable}}</button>
