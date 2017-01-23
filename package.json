@@ -1,6 +1,6 @@
 {
   "name": "dragged",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Drag and Drop with Angular",
   "main": "index.js",
   "scripts": {
